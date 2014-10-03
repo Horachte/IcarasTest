@@ -7,67 +7,87 @@ import java.util.Date;
  * @author Koen, Jelle
  *
  */
-public interface Overeenkomst {
+public abstract class Overeenkomst {
+
+public long id;	
 public boolean isGetekend = false;
 public boolean isStandaardOvereenkomst = false;
-
-//TODO uit het commentaar halen als de betreffende classes zijn aangemaakt. Zowel de attributen als getters en setters. Ook de hibernate annotaties moeten nog worden toegevoegd.
-//Er is nog geen Date class
 public Date startDatum;
 public Date eindDatum;
-
-//Er is nog geen Persoon class
 public Persoon ondergetekende = null;
-
+/**
+ * @return the id
+ */
+public long getId() {
+	return id;
+}
+/**
+ * @param id the id to set
+ */
+public void setId(long id) {
+	this.id = id;
+}
 /**
  * @return the isGetekend
  */
-public boolean isGetekend();
-
+public boolean isGetekend() {
+	return isGetekend;
+}
 /**
  * @param isGetekend the isGetekend to set
  */
-public void setGetekend(boolean isGetekend);
-
+public void setGetekend(boolean isGetekend) {
+	this.isGetekend = isGetekend;
+}
 /**
  * @return the isStandaardOvereenkomst
  */
-public boolean isStandaardOvereenkomst();
-
+public boolean isStandaardOvereenkomst() {
+	return isStandaardOvereenkomst;
+}
 /**
  * @param isStandaardOvereenkomst the isStandaardOvereenkomst to set
  */
-public void setStandaardOvereenkomst(boolean isStandaardOvereenkomst);
-
+public void setStandaardOvereenkomst(boolean isStandaardOvereenkomst) {
+	this.isStandaardOvereenkomst = isStandaardOvereenkomst;
+}
 /**
  * @return the startDatum
  */
-public Date getStartDatum();
-
+public Date getStartDatum() {
+	return startDatum;
+}
 /**
  * @param startDatum the startDatum to set
  */
-public void setStartDatum(Date startDatum);
-
+public void setStartDatum(Date startDatum) {
+	this.startDatum = startDatum;
+}
 /**
  * @return the eindDatum
  */
-public Date getEindDatum();
-
+public Date getEindDatum() {
+	return eindDatum;
+}
 /**
  * @param eindDatum the eindDatum to set
  */
-public void setEindDatum(Date eindDatum);
-
+public void setEindDatum(Date eindDatum) {
+	this.eindDatum = eindDatum;
+}
 /**
  * @return the ondergetekende
  */
-public Persoon getOndergetekende();
-
+public Persoon getOndergetekende() {
+	return ondergetekende;
+}
 /**
  * @param ondergetekende the ondergetekende to set
  */
-public void setOndergetekende(Persoon ondergetekende);
+public void setOndergetekende(Persoon ondergetekende) {
+	this.ondergetekende = ondergetekende;
+}
+
 
 	
 }
