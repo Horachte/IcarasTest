@@ -5,6 +5,6 @@ package model;
  * @author Koen, Jelle
  *
  */
-public abstract class InterneOvereenkomst extends Overeenkomst {
+public abstract class Interneovereenkomst extends Overeenkomst {
 
 }

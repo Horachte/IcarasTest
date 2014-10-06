@@ -19,24 +19,20 @@ import javax.persistence.OneToMany;
 @Entity
 public class CV {
 	
-	@Id
-	@GeneratedValue
-	@Column(name="CV_ID", unique = true, nullable = false)
 	private long id;
 	
-	@Lob
 	private File cvDocument;
 	
-	@OneToMany
 	private List<WerkervaringsEenheid> werkervaringsEenheden = new ArrayList<WerkervaringsEenheid>();
-	@OneToMany
 	private List<Opleiding> opleidingen = new ArrayList<Opleiding>();
-	@OneToMany
 	private List<Expertise> expertises = new ArrayList<Expertise>();
 	
 	/**
 	 * @return the id
 	 */
+	@Id
+	@GeneratedValue
+	@Column(name="CV_ID", unique = true, nullable = false)
 	public long getId() {
 		return id;
 	}
@@ -49,6 +45,7 @@ public class CV {
 	/**
 	 * @return the cvDocument
 	 */
+	@Lob
 	public File getCvDocument() {
 		return cvDocument;
 	}
@@ -61,6 +58,7 @@ public class CV {
 	/**
 	 * @return the werkervaringsEenheden
 	 */
+	@OneToMany
 	public List<WerkervaringsEenheid> getWerkervaringsEenheden() {
 		return werkervaringsEenheden;
 	}
@@ -74,6 +72,7 @@ public class CV {
 	/**
 	 * @return the opleidingen
 	 */
+	@OneToMany
 	public List<Opleiding> getOpleidingen() {
 		return opleidingen;
 	}
@@ -86,6 +85,7 @@ public class CV {
 	/**
 	 * @return the expertises
 	 */
+	@OneToMany
 	public List<Expertise> getExpertises() {
 		return expertises;
 	}

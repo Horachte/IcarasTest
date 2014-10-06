@@ -1,39 +1,40 @@
 package dao;
 
-import model.Arbeidsovereenkomst;
 
+
+import model.Bemiddelingsovereenkomst;
 
 import org.hibernate.Session;
 
 import util.HibernateUtil;
 
-public class ArbeidsovereenkomstDAO implements IArbeidsovereenkomstDAO {
+public class BemiddelingsovereenkomstDAO implements IBemiddelingsovereenkomstDAO {
 	
 	Session session = HibernateUtil.getSessionFactory().openSession();
 
-	public Arbeidsovereenkomst findAanmelder(long id) {
+	public Bemiddelingsovereenkomst findAanmelder(long id) {
 		session.beginTransaction();
-		Arbeidsovereenkomst a = (Arbeidsovereenkomst) session.get(Arbeidsovereenkomst.class, id);
+		Bemiddelingsovereenkomst a = (Bemiddelingsovereenkomst) session.get(Bemiddelingsovereenkomst.class, id);
 		session.getTransaction().commit();
 		return a;
 		
 	}
 
-	public void persistAanmelder(Arbeidsovereenkomst a) {
+	public void persistAanmelder(Bemiddelingsovereenkomst a) {
 		session.beginTransaction();
 		session.save(a);
 		session.getTransaction().commit();
 		
 	}
 
-	public void updateAanmelder(Arbeidsovereenkomst a) {
+	public void updateAanmelder(Bemiddelingsovereenkomst a) {
 		session.beginTransaction();
 		session.saveOrUpdate(a);
 		session.getTransaction().commit();
 		
 	}
-
-	public void deleteAanmelder(Arbeidsovereenkomst a) {
+	
+	public void deleteAanmelder(Bemiddelingsovereenkomst a) {
 		session.beginTransaction();
 		session.delete(a);
 		session.getTransaction().commit();

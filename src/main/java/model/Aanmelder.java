@@ -17,20 +17,18 @@ import javax.persistence.OneToMany;
 @Entity
 public class Aanmelder {
 	
-	@Id
-	@GeneratedValue
-	@Column(name="AANMELDER_ID", unique = true, nullable = false)
 	private long id;
 	
-	@OneToMany
-	private List<InterneOvereenkomst> overeenkomsten = new ArrayList<InterneOvereenkomst>();
+	private List<Interneovereenkomst> overeenkomsten = new ArrayList<Interneovereenkomst>();
 	
-	@Column(name="CV")
 	private CV cV;
 	
 	/**
 	 * @return the id
 	 */
+	@Id
+	@GeneratedValue
+	@Column(name="AANMELDER_ID", unique = true, nullable = false)
 	public long getId() {
 		return id;
 	}
@@ -43,18 +41,20 @@ public class Aanmelder {
 	/**
 	 * @return the overeenkomsten
 	 */
-	public List<InterneOvereenkomst> getOvereenkomsten() {
+	@OneToMany
+	public List<Interneovereenkomst> getOvereenkomsten() {
 		return overeenkomsten;
 	}
 	/**
 	 * @param overeenkomsten the overeenkomsten to set
 	 */
-	public void setOvereenkomsten(ArrayList<InterneOvereenkomst> overeenkomsten) {
+	public void setOvereenkomsten(ArrayList<Interneovereenkomst> overeenkomsten) {
 		this.overeenkomsten = overeenkomsten;
 	}
 	/**
 	 * @return the cV
 	 */
+	@Column(name="CV")
 	public CV getcV() {
 		return cV;
 	}

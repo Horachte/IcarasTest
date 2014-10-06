@@ -2,25 +2,30 @@ package model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 /**
  * 
  * @author Koen, Jelle
  *
  */
-public class ArbeidsOvereenkomst extends Overeenkomst {
+@Entity
+public class Bemiddelingsovereenkomst extends Interneovereenkomst {
 
 	private long id;
 	private boolean isGetekend = false;
 	private boolean isStandaardOvereenkomst = false;
-	private Bedrijf werkgever;
-	private Persoon werknemer;
-	public Date startDatum;
-	public Date eindDatum;
-	public Persoon ondergetekende = null;
-	
+	private Date startDatum;
+	private Date eindDatum;
+	private Persoon ondergetekende = null;
 	/**
 	 * @return the id
 	 */
+	@Id
+	@GeneratedValue
+	@Column(name="BEMIDDELINGSOVEREENKOMST_ID", unique = true, nullable = false)
 	public long getId() {
 		return id;
 	}
@@ -33,6 +38,7 @@ public class ArbeidsOvereenkomst extends Overeenkomst {
 	/**
 	 * @return the isGetekend
 	 */
+	@Column(name="getekend")
 	public boolean isGetekend() {
 		return isGetekend;
 	}
@@ -45,6 +51,7 @@ public class ArbeidsOvereenkomst extends Overeenkomst {
 	/**
 	 * @return the isStandaardOvereenkomst
 	 */
+	@Column(name="standaardovereenkomst")
 	public boolean isStandaardOvereenkomst() {
 		return isStandaardOvereenkomst;
 	}
@@ -55,32 +62,9 @@ public class ArbeidsOvereenkomst extends Overeenkomst {
 		this.isStandaardOvereenkomst = isStandaardOvereenkomst;
 	}
 	/**
-	 * @return the werkgever
-	 */
-	public Bedrijf getWerkgever() {
-		return werkgever;
-	}
-	/**
-	 * @param werkgever the werkgever to set
-	 */
-	public void setWerkgever(Bedrijf werkgever) {
-		this.werkgever = werkgever;
-	}
-	/**
-	 * @return the werknemer
-	 */
-	public Persoon getWerknemer() {
-		return werknemer;
-	}
-	/**
-	 * @param werknemer the werknemer to set
-	 */
-	public void setWerknemer(Persoon werknemer) {
-		this.werknemer = werknemer;
-	}
-	/**
 	 * @return the startDatum
 	 */
+	@Column(name="startdatum")
 	public Date getStartDatum() {
 		return startDatum;
 	}
@@ -93,6 +77,7 @@ public class ArbeidsOvereenkomst extends Overeenkomst {
 	/**
 	 * @return the eindDatum
 	 */
+	@Column(name="einddatum")
 	public Date getEindDatum() {
 		return eindDatum;
 	}
@@ -105,6 +90,8 @@ public class ArbeidsOvereenkomst extends Overeenkomst {
 	/**
 	 * @return the ondergetekende
 	 */
+	//TODO implementeren voor hibernate als er een persoonsklasse is.
+	//@OneToOne
 	public Persoon getOndergetekende() {
 		return ondergetekende;
 	}
@@ -116,6 +103,6 @@ public class ArbeidsOvereenkomst extends Overeenkomst {
 	}
 	
 	
-	
-	
+
+
 }

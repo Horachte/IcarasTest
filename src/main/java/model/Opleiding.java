@@ -9,17 +9,16 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Opleiding {
 	
-	@Id
-	@GeneratedValue
-	@Column(name="OPLEIDING_ID", unique = true, nullable = false)
 	private long id;
 	
-	@ManyToOne
 	private CV cv;
 
 	/**
 	 * @return the id
 	 */
+	@Id
+	@GeneratedValue
+	@Column(name="OPLEIDING_ID", unique = true, nullable = false)
 	public long getId() {
 		return id;
 	}
@@ -29,6 +28,21 @@ public class Opleiding {
 	 */
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	/**
+	 * @return the cv
+	 */
+	@ManyToOne
+	public CV getCv() {
+		return cv;
+	}
+
+	/**
+	 * @param cv the cv to set
+	 */
+	public void setCv(CV cv) {
+		this.cv = cv;
 	}
 	
 	

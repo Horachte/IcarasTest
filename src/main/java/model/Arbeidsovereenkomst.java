@@ -2,23 +2,35 @@ package model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+
 /**
  * 
  * @author Koen, Jelle
  *
  */
-public class ScholingsOvereenkomst extends InterneOvereenkomst {
-	
+@Entity
+public class Arbeidsovereenkomst extends Overeenkomst {
+
 	private long id;
 	private boolean isGetekend = false;
 	private boolean isStandaardOvereenkomst = false;
-	private Date startDatum;
-	private Date eindDatum;
-	private Persoon ondergetekende = null;
+	private Bedrijf werkgever;
+	private Persoon werknemer;
+	public Date startDatum;
+	public Date eindDatum;
+	public Persoon ondergetekende = null;
 	
 	/**
 	 * @return the id
 	 */
+	@Id
+	@GeneratedValue
+	@Column(name="ARBEIDSOVEREENKOMST_ID", unique = true, nullable = false)
 	public long getId() {
 		return id;
 	}
@@ -31,6 +43,7 @@ public class ScholingsOvereenkomst extends InterneOvereenkomst {
 	/**
 	 * @return the isGetekend
 	 */
+	@Column(name="getekend")
 	public boolean isGetekend() {
 		return isGetekend;
 	}
@@ -43,6 +56,7 @@ public class ScholingsOvereenkomst extends InterneOvereenkomst {
 	/**
 	 * @return the isStandaardOvereenkomst
 	 */
+	@Column(name="standaardovereenkomst")
 	public boolean isStandaardOvereenkomst() {
 		return isStandaardOvereenkomst;
 	}
@@ -53,8 +67,37 @@ public class ScholingsOvereenkomst extends InterneOvereenkomst {
 		this.isStandaardOvereenkomst = isStandaardOvereenkomst;
 	}
 	/**
+	 * @return the werkgever
+	 */
+	//TODO implementeren voor hibernate als er een bedrijfsklasse is.
+	//@OneToOne
+	public Bedrijf getWerkgever() {
+		return werkgever;
+	}
+	/**
+	 * @param werkgever the werkgever to set
+	 */
+	public void setWerkgever(Bedrijf werkgever) {
+		this.werkgever = werkgever;
+	}
+	/**
+	 * @return the werknemer
+	 */
+	//TODO implementeren voor hibernate als er een persoonsklasse is.
+	//@OneToOne
+	public Persoon getWerknemer() {
+		return werknemer;
+	}
+	/**
+	 * @param werknemer the werknemer to set
+	 */
+	public void setWerknemer(Persoon werknemer) {
+		this.werknemer = werknemer;
+	}
+	/**
 	 * @return the startDatum
 	 */
+	@Column(name="startdatum")
 	public Date getStartDatum() {
 		return startDatum;
 	}
@@ -67,6 +110,7 @@ public class ScholingsOvereenkomst extends InterneOvereenkomst {
 	/**
 	 * @return the eindDatum
 	 */
+	@Column(name="einddatum")
 	public Date getEindDatum() {
 		return eindDatum;
 	}
@@ -79,6 +123,8 @@ public class ScholingsOvereenkomst extends InterneOvereenkomst {
 	/**
 	 * @return the ondergetekende
 	 */
+	//TODO implementeren voor hibernate als er een persoonsklasse is.
+	//@OneToOne
 	public Persoon getOndergetekende() {
 		return ondergetekende;
 	}
@@ -88,5 +134,8 @@ public class ScholingsOvereenkomst extends InterneOvereenkomst {
 	public void setOndergetekende(Persoon ondergetekende) {
 		this.ondergetekende = ondergetekende;
 	}
+	
+	
+	
 	
 }

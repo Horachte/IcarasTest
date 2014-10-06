@@ -1,22 +1,33 @@
 package model;
 
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  * 
  * @author Koen, Jelle
  *
  */
-public class BemiddelingsOvereenkomst extends InterneOvereenkomst {
-
+@Entity
+public class Scholingsovereenkomst extends Interneovereenkomst {
+	
 	private long id;
 	private boolean isGetekend = false;
 	private boolean isStandaardOvereenkomst = false;
 	private Date startDatum;
 	private Date eindDatum;
 	private Persoon ondergetekende = null;
+	
 	/**
 	 * @return the id
 	 */
+	@Id
+	@GeneratedValue
+	@Column(name="SCHOLINGSOVEREENKOMST_ID", unique = true, nullable = false)
 	public long getId() {
 		return id;
 	}
@@ -29,6 +40,7 @@ public class BemiddelingsOvereenkomst extends InterneOvereenkomst {
 	/**
 	 * @return the isGetekend
 	 */
+	@Column(name="getekend")
 	public boolean isGetekend() {
 		return isGetekend;
 	}
@@ -41,6 +53,7 @@ public class BemiddelingsOvereenkomst extends InterneOvereenkomst {
 	/**
 	 * @return the isStandaardOvereenkomst
 	 */
+	@Column(name="standaardovereenkomst")
 	public boolean isStandaardOvereenkomst() {
 		return isStandaardOvereenkomst;
 	}
@@ -53,6 +66,7 @@ public class BemiddelingsOvereenkomst extends InterneOvereenkomst {
 	/**
 	 * @return the startDatum
 	 */
+	@Column(name="startdatum")
 	public Date getStartDatum() {
 		return startDatum;
 	}
@@ -65,6 +79,7 @@ public class BemiddelingsOvereenkomst extends InterneOvereenkomst {
 	/**
 	 * @return the eindDatum
 	 */
+	@Column(name="einddatum")
 	public Date getEindDatum() {
 		return eindDatum;
 	}
@@ -77,6 +92,8 @@ public class BemiddelingsOvereenkomst extends InterneOvereenkomst {
 	/**
 	 * @return the ondergetekende
 	 */
+	//TODO implementeren voor hibernate als er een persoonsclasse is.
+		//@OneToOne
 	public Persoon getOndergetekende() {
 		return ondergetekende;
 	}
@@ -87,7 +104,4 @@ public class BemiddelingsOvereenkomst extends InterneOvereenkomst {
 		this.ondergetekende = ondergetekende;
 	}
 	
-	
-
-
 }

@@ -14,17 +14,16 @@ import javax.persistence.ManyToOne;
 @Entity
 public class WerkervaringsEenheid {
 	
-	@Id
-	@GeneratedValue
-	@Column(name="WERKERVARINGSEENHEID_ID", unique = true, nullable = false)
 	private long id;
 	
-	@ManyToOne
 	private CV cv;
 
 	/**
 	 * @return the id
 	 */
+	@Id
+	@GeneratedValue
+	@Column(name="WERKERVARINGSEENHEID_ID", unique = true, nullable = false)
 	public long getId() {
 		return id;
 	}
@@ -39,6 +38,7 @@ public class WerkervaringsEenheid {
 	/**
 	 * @return the cv
 	 */
+	@ManyToOne
 	public CV getCv() {
 		return cv;
 	}

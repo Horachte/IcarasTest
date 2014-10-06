@@ -1,6 +1,14 @@
 package util;
 
 
+import model.Aanmelder;
+import model.Arbeidsovereenkomst;
+import model.Bemiddelingsovereenkomst;
+import model.CV;
+import model.Opleiding;
+import model.Scholingsovereenkomst;
+import model.WerkervaringsEenheid;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -14,9 +22,13 @@ public class HibernateUtil {
               	
         	Configuration config = new Configuration();
             config.configure();
-            config.addAnnotatedClass(Bedrijf.class);
-            config.addAnnotatedClass(Persoon.class);
-            config.addAnnotatedClass(Project.class);
+            config.addAnnotatedClass(Aanmelder.class);
+            config.addAnnotatedClass(CV.class);
+            config.addAnnotatedClass(WerkervaringsEenheid.class);
+            config.addAnnotatedClass(Opleiding.class);
+            config.addAnnotatedClass(Arbeidsovereenkomst.class);
+            config.addAnnotatedClass(Bemiddelingsovereenkomst.class);
+            config.addAnnotatedClass(Scholingsovereenkomst.class);
             
             ServiceRegistry registry = new StandardServiceRegistryBuilder()
             .applySettings(config.getProperties())
